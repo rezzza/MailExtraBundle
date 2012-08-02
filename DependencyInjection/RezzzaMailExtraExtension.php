@@ -24,6 +24,9 @@ class RezzzaMailExtraExtension extends Extension
 		$processor = new Processor();
 		$config    = $processor->processConfiguration(new Configuration(), $configs);
 
-		$container->setParameter('swiftmailer.class', $config['mailer_class']);
+        $container->setParameter('swiftmailer.class', $config['mailer_class']);
+
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
+        $loader->load('transformer.xml');
     }
 }

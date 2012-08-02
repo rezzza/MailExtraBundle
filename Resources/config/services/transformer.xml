@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+		<parameter key="rezzza.transformer.processor.class">Rezzza\MailExtraBundle\Transformer\Processor</parameter>
+		<parameter key="rezzza.transformer.html2text.class">Rezzza\MailExtraBundle\Transformer\Html2TextTransformer</parameter>
+		<parameter key="rezzza.transformer.picture_embed.class">Rezzza\MailExtraBundle\Transformer\PictureEmbedTransformer</parameter>
+    </parameters>
+
+    <services>
+        <service id="rezzza.transformer.processor" class="%rezzza.transformer.processor.class%" />
+        <service id="rezzza.transformer.html2text" class="%rezzza.transformer.html2text.class%" />
+        <service id="rezzza.transformer.picture_embed" class="%rezzza.transformer.picture_embed.class%" />
+    </services>
+
+</container>
