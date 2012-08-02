@@ -6,10 +6,10 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * Configuration 
+ * Configuration
  *
  * @uses ConfigurationInterface
- * @author Stephane PY <py.stephane1@gmail.com> 
+ * @author Stephane PY <py.stephane1@gmail.com>
  */
 class Configuration implements ConfigurationInterface
 {
@@ -36,7 +36,7 @@ class Configuration implements ConfigurationInterface
                                 ->booleanNode('embed')->defaultTrue()->end()
                             ->end()
                         ->end()
-                        
+
                     ->end()
                 ->end()
                 // content types
@@ -44,17 +44,17 @@ class Configuration implements ConfigurationInterface
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->booleanNode('auto_generate')->defaultTrue()->end()
-                        ->arrayNode('generators')
+                        ->arrayNode('transformers')
                             ->useAttributeAsKey('name')
                             ->prototype('array')
                                 ->children()
                                     ->scalarNode('type')->isRequired()->end()
-                                    ->scalarNode('transformer')->isRequired()->end()
+                                    ->scalarNode('provider')->isRequired()->end()
                                     ->scalarNode('from')->isRequired()->end()
                                 ->end()
                             ->end()
                         ->end()
-                        ->arrayNode('transformers')
+                        ->arrayNode('providers')
                             ->addDefaultsIfNotSet()
                             ->children()
                                 ->arrayNode('html2text')
