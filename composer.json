@@ -1,5 +1,5 @@
 {
-    "name": "stephpy/MailExtraBundle",
+    "name": "rezzza/mail-extra-bundle",
     "description": "Mail tools for Swift_Mailer.",
     "keywords": ["mail", "tools", "symfony", "bundle"],
     "type": "symfony-bundle",
