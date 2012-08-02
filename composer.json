@@ -1,0 +1,23 @@
+{
+    "name": "stephpy/MailExtraBundle",
+    "description": "Mail tools for Swift_Mailer.",
+    "keywords": ["mail", "tools", "symfony", "bundle"],
+    "type": "symfony-bundle",
+    "homepage": "https://github.com/rezzza/MailExtraBundle",
+    "license": "MIT",
+    "authors": [{
+        "name": "Community contributors",
+        "homepage": "https://github.com/rezzza/MailExtraBundle/contributors"
+    }],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*",
+        "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev"
+    },
+    "minimum-stability": "dev",
+    "autoload":     {
+        "psr-0": { "Rezzza\\MailExtraBundle": "" }
+    },
+    "target-dir": "Rezzza/MailExtraBundle"
+
+}
