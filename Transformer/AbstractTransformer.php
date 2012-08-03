@@ -9,16 +9,16 @@ namespace Rezzza\MailExtraBundle\Transformer;
  */
 class AbstractTransformer
 {
-	/**
-	 * @var array
-	 */
-	protected $options = array();
+    /**
+     * @var array
+     */
+    protected $options = array();
 
-	/**
-	 * @param array $options options
-	 */
-	public function setOptions(array $options)
-	{
-		$this->options = array_merge($options, $this->options);
-	}
+    /**
+     * @param array $options options
+     */
+    public function setOptions(array $options)
+    {
+        $this->options = array_merge($this->options, $options);
+    }
 }

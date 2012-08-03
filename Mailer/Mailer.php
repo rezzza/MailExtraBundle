@@ -17,13 +17,13 @@ class Mailer extends \Swift_Mailer implements MailerInterface
      */
     protected $Processor;
 
-	/**
-	 * {@inheritdoc}
-	 */
-	public function setTransformerProcessor(Processor $transformerProcessor)
-	{
+    /**
+     * {@inheritdoc}
+     */
+    public function setTransformerProcessor(Processor $transformerProcessor)
+    {
         $this->transformerProcessor = $transformerProcessor;
-	}
+    }
 
     /**
      * @param string $ident ident of the transformer

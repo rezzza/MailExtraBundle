@@ -21,8 +21,8 @@ class RezzzaMailExtraExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-		$processor = new Processor();
-		$config    = $processor->processConfiguration(new Configuration(), $configs);
+        $processor = new Processor();
+        $config    = $processor->processConfiguration(new Configuration(), $configs);
 
         $container->setParameter('swiftmailer.class', $config['mailer_class']);
 

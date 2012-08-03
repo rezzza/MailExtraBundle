@@ -12,17 +12,17 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
  */
 class AddTransformerProcessorCompilerPass implements CompilerPassInterface
 {
-	/**
+    /**
      * {@inheritdoc}
-	 *
-	 * We have to set the TransfomerProcessor on mailer
+     *
+     * We have to set the TransfomerProcessor on mailer
      */
     public function process(ContainerBuilder $container)
     {
-		$container->getDefinition('swiftmailer.mailer')
-			->addMethodCall('setTransformerProcessor', array(
-				$container->getDefinition('rezzza.transformer.processor')
-			)
-		);
+        $container->getDefinition('swiftmailer.mailer')
+            ->addMethodCall('setTransformerProcessor', array(
+                $container->getDefinition('rezzza.transformer.processor')
+            )
+        );
     }
 }

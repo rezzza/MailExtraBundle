@@ -4,7 +4,6 @@ namespace Rezzza\MailExtraBundle\Mailer;
 
 use Rezzza\MailExtraBundle\Transformer\Processor;
 
-
 /**
  * MailerInterface
  *
@@ -12,8 +11,8 @@ use Rezzza\MailExtraBundle\Transformer\Processor;
  */
 interface MailerInterface
 {
-	/**
-	 * @param Processor $transformerProcessor transformerProcessor
-	 */
-	public function setTransformerProcessor(Processor $transformerProcessor);
+    /**
+     * @param Processor $transformerProcessor transformerProcessor
+     */
+    public function setTransformerProcessor(Processor $transformerProcessor);
 }
