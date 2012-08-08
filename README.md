@@ -75,7 +75,7 @@ $transformerProcessor->deactivate('my_transformer'); // deactivate
 
 # Full configuration reference:
 
-```
+```yaml
 rezzza_mail_extra:
     mailer_class: Rezzza\MailExtraBundle\Mailer\Mailer
     transformers: # list of transformers
