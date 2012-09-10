@@ -18,7 +18,20 @@ class PictureEmbedTransformer extends AbstractTransformer implements Transformer
     {
         $body = $message->getBody();
 
-        $body = preg_replace_callback('/src="([^"]*)"/',
+        $body = preg_replace_callback('/(src|background)="(http[^"]*)"/',
+            function($matches) use ($message) {
+                $attribute = $matches[1];
+                $imagePath = $matches[2];
+
+                if ($fp = fopen($imagePath, "r" )) {
+                    $imagePath = $message->embed(\Swift_Image::fromPath($imagePath));
+                    fclose($fp);
+                }
+
+                return sprintf('%s="%s"', $attribute, $imagePath);
+        }, $body);
+
+        $body = preg_replace_callback('/url\((http[^"]*)\)/',
             function($matches) use ($message) {
                 $imagePath = $matches[1];
 
@@ -27,7 +40,7 @@ class PictureEmbedTransformer extends AbstractTransformer implements Transformer
                     fclose($fp);
                 }
 
-                return sprintf('src="%s"', $imagePath);
+                return sprintf('url(%s)', $imagePath);
         }, $body);
 
         $message->setBody($body, 'text/html');
