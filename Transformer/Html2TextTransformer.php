@@ -60,7 +60,6 @@ class Html2TextTransformer extends AbstractTransformer implements TransformerInt
         }
 
         //@todo continue, integrate other options
-
         return $command;
     }
 

@@ -12,7 +12,8 @@ use Rezzza\MailExtraBundle\Transformer\Processor;
 interface MailerInterface
 {
     /**
-     * @param Processor $transformerProcessor transformerProcessor
+     * @param  Processor $transformerProcessor transformerProcessor
+     * @return void
      */
     public function setTransformerProcessor(Processor $transformerProcessor);
 }
