@@ -49,7 +49,7 @@ class Processor
     }
 
     /**
-     * @param \Swift_Message $message message
+     * @param \Swift_Mime_Message $message message
      */
     public function process(\Swift_Mime_Message $message)
     {
