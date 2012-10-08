@@ -20,7 +20,6 @@ class RezzzaMailExtraBundle extends Bundle
      */
     public function build(ContainerBuilder $container)
     {
-        $container->addCompilerPass(new AddTransformersCompilerPass());
         $container->addCompilerPass(new AddTransformerProcessorCompilerPass());
     }
 }

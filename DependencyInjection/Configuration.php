@@ -36,6 +36,7 @@ class Configuration implements ConfigurationInterface
                         'html2text' => array(
                             'id' => 'rezzza.transformer.html2text',
                             'default' => false,
+                            'enabled' => true,
                             'options' => array(
                                 'binary' => '/usr/local/bin/html2text',
                             )
@@ -47,6 +48,7 @@ class Configuration implements ConfigurationInterface
                         ->children()
                             ->scalarNode('id')->isRequired()->end()
                             ->booleanNode('default')->defaultFalse()->end()
+                            ->booleanNode('enabled')->defaultTrue()->end()
                             ->arrayNode('options')
                                 ->performNoDeepMerging()
                                 ->useAttributeAsKey('id')

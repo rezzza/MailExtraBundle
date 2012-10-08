@@ -28,5 +28,26 @@ class RezzzaMailExtraExtension extends Extension
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config/services'));
         $loader->load('transformer.xml');
+
+        $processor = $container->getDefinition('rezzza.transformer.processor');
+        $transformers = $config['transformers'];
+
+        foreach ($transformers as $name => $parameters) {
+            if (!$parameters['enabled']) {
+                continue;
+            }
+
+            $providerDefinition = $container->getDefinition($parameters['id']);
+            if (isset($parameters['options'])) {
+                $providerDefinition->addMethodCall('setOptions', array($parameters['options']));
+            }
+
+            $processor->addMethodCall('add', array($name, $providerDefinition, $parameters['enabled']));
+
+            if ($parameters['default']) {
+                $processor->addMethodCall('activate', array($name));
+            }
+        }
+
     }
 }
