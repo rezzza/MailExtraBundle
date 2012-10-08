@@ -17,6 +17,10 @@
     "autoload":     {
         "psr-0": { "Rezzza\\MailExtraBundle": "" }
     },
-    "target-dir": "Rezzza/MailExtraBundle"
-
+    "target-dir": "Rezzza/MailExtraBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
