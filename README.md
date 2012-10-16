@@ -82,6 +82,7 @@ rezzza_mail_extra:
         html2text:
             id:         rezzza.transformer.html2text # service identifier
             default:    false # is used by default on each mail
+            enabled:    true # can be disabled for tests for example.
             options:    # some options
                 binary: /usr/local/bin/html2text
         picture_embed:
