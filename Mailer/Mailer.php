@@ -15,7 +15,7 @@ class Mailer extends \Swift_Mailer implements MailerInterface
     /**
      * @var Processor
      */
-    protected $Processor;
+    protected $transformerProcessor;
 
     /**
      * {@inheritdoc}
@@ -34,13 +34,23 @@ class Mailer extends \Swift_Mailer implements MailerInterface
     }
 
     /**
+     * @param string $ident ident of the transformer
+     */
+    public function deactivateTransformer($ident)
+    {
+        $this->transformerProcessor->deactivate($ident);
+    }
+
+    /**
      * {@inheritdoc}
      *
      * Use transformers defined on transformer processor
      */
     public function send(\Swift_Mime_Message $message, &$failedRecipients = null)
     {
-        $this->transformerProcessor->process($message);
+        if ($this->transformerProcessor) {
+            $this->transformerProcessor->process($message);
+        }
 
         return parent::send($message, $failedRecipients);
     }
