@@ -19,10 +19,13 @@ class AddTransformerProcessorCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $container->getDefinition('swiftmailer.mailer')
-            ->addMethodCall('setTransformerProcessor', array(
-                $container->getDefinition('rezzza.transformer.processor')
-            )
-        );
+        $mailers = $container->getParameter('swiftmailer.mailers');
+        foreach ($mailers as $name => $mailer) {
+            $container->getDefinition($mailer)
+                ->addMethodCall('setTransformerProcessor', array(
+                    $container->getDefinition('rezzza.transformer.processor')
+                )
+            );
+        }
     }
 }
