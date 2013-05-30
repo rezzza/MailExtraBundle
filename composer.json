@@ -20,7 +20,7 @@
                 "name": "symfony/swiftmailer-bundle"
             },
             "type": "git",
-            "url": "https://github.com/jeremyFreeAgent/SwiftmailerBundle.git"
+            "url": "https://github.com/rezzza/SwiftmailerBundle.git"
         }
     ],
     "minimum-stability": "dev",
